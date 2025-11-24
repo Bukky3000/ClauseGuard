@@ -68,15 +68,39 @@ User → Upload → OCR → AI Analysis → Risk Report
 - PDF.co
 - Notion/Google Forms/Glitch
 
-12. Risks & Assumptions
-Risks:
-- Misinterpretation
-- OCR errors
-- Free tier limits
 
-Assumptions:
-- Not replacing lawyer
-- Standard contracts
+Nodes used in flowise 
+
+1. Document loader
+
+
+-- PDF file 
+ Purpose: Upload contracts or receive file from n8n
+
+Settings: “Extract full text”
+
+
+Node 2: Text Splitter
+
+Purpose: Break contract into manageable chunks
+
+
+
+Chunk overlap: 200
+
+
+Node 3: Embeddings
+
+Use: OpenAI or Free instructor embeddings
+
+Purpose: Convert text into searchable vectors
+
+
+Node 4: Vector Store
+
+Use: In-memory or ChromaDB
+
+Purpose: Store contract clause chunks for analysis
 
 13. Future Enhancements
 - Clause comparison
